@@ -27,6 +27,7 @@ class UserSeeder extends Seeder
             "id_kodepos" => "55198",
             "tgl_lahir" => "2002-01-01",
             "no_telp" => "085324237299",
+            "status" => "1",
         ]);
 
 
@@ -42,6 +43,7 @@ class UserSeeder extends Seeder
             "id_kodepos" => "55198",
             "tgl_lahir" => "2002-01-01",
             "no_telp" => "085324237290",
+            "status" => "1",
         ]);
 
         User::create([
@@ -56,6 +58,7 @@ class UserSeeder extends Seeder
             "id_kodepos" => "55198",
             "tgl_lahir" => "2002-01-01",
             "no_telp" => "085324237298",
+            "status" => "1",
         ]);
 
         User::create([
@@ -70,6 +73,7 @@ class UserSeeder extends Seeder
             "id_kodepos" => "55198",
             "tgl_lahir" => "2002-01-01",
             "no_telp" => "085324237297",
+            "status" => "1",
         ]);
 
         User::create([
@@ -84,6 +88,7 @@ class UserSeeder extends Seeder
             "id_kodepos" => "55198",
             "tgl_lahir" => "2002-01-01",
             "no_telp" => "085324237296",
+            "status" => "1",
         ]);
 
     }

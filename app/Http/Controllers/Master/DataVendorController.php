@@ -6,6 +6,7 @@ use PDF;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use PhpParser\Node\Expr\FuncCall;
 
 class DataVendorController extends Controller
 {
@@ -16,13 +17,6 @@ class DataVendorController extends Controller
         ];
 
         return view('superadmin.vendor.data_vendor', $data);
-    }
-
-    public function viewPDF()
-    {
-        $pdf = PDF::loadHTML("superadmin.vendor.pdf_vendor");
-
-        return $pdf->stream();
     }
 
    public function pdf()

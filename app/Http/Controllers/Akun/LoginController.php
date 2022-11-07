@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Akun;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Provinsi;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 
 class LoginController extends Controller
 {
@@ -23,23 +24,36 @@ class LoginController extends Controller
             "password" => "required"
         ]);
 
+        $password = $request->password;
+
+
         $user = User::where("email", $request->email)->first();
 
         if ($user) {
-            Auth::attempt($req);
-            if ($user->id_role == 1) {
-                return redirect()->intended("/superadmin/dashboard");
-            } else if ($user->id_role == 5) {
-                return redirect("/admin/dashboard_admin");
-            } else if ($user->id_role == 3) {
-                return redirect("/finance/dashboard_finance");
-            } else if ($user->id_role == 4) {
-                return redirect("/vendor/dashboard_vendor");
-            } else if ($user->id_role == 2) {
-                return redirect("/user/home");
+            $cek_password = Hash::check($password, $user->password);
+
+            if (!$cek_password) {
+                return back();
+            } else {
+                if ($user->status == 0) {
+                    return back();
+                } else {
+                    Auth::attempt($req);
+                    if ($user->id_role == 1) {
+                        return redirect()->intended("/superadmin/dashboard");
+                    } else if ($user->id_role == 5) {
+                        return redirect("/admin/dashboard_admin");
+                    } else if ($user->id_role == 3) {
+                        return redirect("/finance/dashboard_finance");
+                    } else if ($user->id_role == 4) {
+                        return redirect("/vendor/dashboard_vendor");
+                    } else if ($user->id_role == 2) {
+                        return redirect("/user/home");
+                    } else {
+                        return back();
+                    }
+                }
             }
-        } else {
-            return back();
         }
     }
 
@@ -103,6 +117,7 @@ class LoginController extends Controller
                 "id_kodepos" => $request->id_kodepos,
                 "no_telp" => $request->no_telp,
                 "id_role" => 2,
+                "status" => 0,
             ]);
 
             return redirect("/login");

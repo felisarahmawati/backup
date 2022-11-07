@@ -80,9 +80,6 @@ Route::controller(AdminController::class)->group(function(){
         Route::resource("profile", ProfileAdminController::class);
         Route::patch('/profile/{id}', [ProfileAdminController::class, "update"]);
     });
-    Route::prefix("pengguna")->group(function(){
-        Route::resource("verifikasi_vendor", VerifikasiVendorController::class);
-    });
     Route::prefix("data")->group(function(){
         Route::resource("data_customer", DataCustomerController::class);
         Route::resource("data_payment", DataPaymentController::class);
@@ -115,8 +112,14 @@ Route::controller(AdminController::class)->group(function(){
     });
 });
 
+Route::controller(VerifikasiVendorController::class)->group(function(){
+    Route::get('/admin/verifikasi/vendor', 'index');
+    Route::put('/admin/verifikasi/vendor/{id}/aktifkan', 'aktifkan');
+});
+
 Route::controller(VerifikasiPenggunaController::class)->group(function(){
     Route::get('/admin/verifikasi/pengguna', 'index');
+    Route::put('/admin/verifikasi/pengguna/{id}/aktifkan', 'aktifkan');
 });
 
 // Tampilan User

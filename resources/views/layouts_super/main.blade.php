@@ -77,6 +77,10 @@
                     <i class='bx bxs-chevron-down arrow'></i>
                 </div>
                 <div class="sub-menu">
+
+                    <div class="drop-box">
+                        <a href="{{ url('/superadmin/akun/role')}}">Role</a>
+                    </div>
                     <div class="drop-box">
                         <a href="{{ url('/superadmin/master/homeawal')}}">Home</a>
                     </div>

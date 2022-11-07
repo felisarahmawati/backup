@@ -58,7 +58,7 @@
                 <div class="sub-menu" style="font-size: 13px">
                     <div class="drop-box">
                         <a href="/admin/verifikasi/pengguna" >Customer</a>
-                        <a href="/pengguna/verifikasi_vendor">Vendor</a>
+                        <a href="/admin/verifikasi/vendor">Vendor</a>
                     </div>
                 </div>
             </li>

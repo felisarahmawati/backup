@@ -35,6 +35,7 @@ return new class extends Migration
             $table->string('kecamatan')->nullable();
             $table->string('kota_kab')->nullable();
             $table->string('kelurahan')->nullable();
+            $table->string('status')->default(0);
             $table->timestamps();
         });
     }
