@@ -24,6 +24,6 @@ class VerifikasiVendorController extends Controller
             "status" => 1
         ]);
 
-        return redirect("/admin/verifikasi/pengguna");
+        return redirect("/admin/verifikasi/vendor");
     }
 }

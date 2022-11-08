@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Akun;
 
 use App\Models\User;
-use App\Models\Provinsi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
